@@ -1,0 +1,61 @@
+<div class="card mb-3" *ngIf="resume">
+    <div class="card-header">
+      Resume
+    </div>
+    <div class="card-body">
+      <h5>Personal Information</h5>
+      <p>Name: {{resume?.personalInfo?.name}}</p>
+      <p>Email: {{resume?.personalInfo?.email}}</p>
+      <p>Phone: {{resume?.personalInfo?.phone}}</p>
+      <p>Address: {{resume?.personalInfo?.address}}</p>
+  
+      <h5>Experience</h5>
+      <div *ngFor="let exp of resume.experience">
+        <p>Company: {{exp.company}}</p>
+        <p>Role: {{exp.role}}</p>
+        <p>Duration: {{exp.start }} - {{exp.end }}</p>
+        <p>Description: {{exp.description}}</p>
+      </div><div class="card mb-3" *ngIf="resume">
+        <div class="card-header">
+          Resume
+        </div>
+        <div class="card-body">
+          <h5>Personal Information</h5>
+          <p *ngIf="resume.personalInfo.name">Name: {{resume?.personalInfo?.name}}</p>
+          <p *ngIf="resume.personalInfo.email">Email: {{resume?.personalInfo?.email}}</p>
+          <p *ngIf="resume.personalInfo.phone">Phone: {{resume?.personalInfo?.phone}}</p>
+          <p *ngIf="resume.personalInfo.address">Address: {{resume?.personalInfo?.address}}</p>
+      
+          <h5>Experience</h5>
+          <div *ngFor="let exp of resume.experience">
+            <p *ngIf="exp.company">Company: {{exp.company}}</p>
+            <p *ngIf="exp.role">Role: {{exp.role}}</p>
+            <p *ngIf="exp.start && exp.end">Duration: {{exp.start }} - {{exp.end }}</p>
+            <p *ngIf="exp.description">Description: {{exp.description}}</p>
+          </div>
+      
+          <h5>Education</h5>
+          <div *ngFor="let edu of resume.education">
+            <p *ngIf="edu.institution">Institution: {{edu.institution}}</p>
+            <p *ngIf="edu.degree">Degree: {{edu.degree}}</p>
+            <p *ngIf="edu.graduation">Graduation Date: {{edu.graduation }}</p>
+          </div>
+      
+          <h5>Skills</h5>
+          <p *ngIf="resume.skills.skills.length">Skills: {{resume?.skills?.skills?.join(', ')}}</p>
+        </div>
+      </div>
+      
+  
+      <h5>Education</h5>
+      <div *ngFor="let edu of resume.education">
+        <p>Institution: {{edu.institution}}</p>
+        <p>Degree: {{edu.degree}}</p>
+        <p>Graduation Date: {{edu.graduation}}</p>
+      </div>
+  
+      <h5>Skills</h5>
+      <p>Skills: {{resume?.skills?.skills?.join(', ')}}</p>
+    </div>
+  </div>
+  
